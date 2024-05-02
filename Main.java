@@ -30,7 +30,12 @@ public class Main {
                 break;
             case 2: // Game 3 selection
             default:
-                System.out.println("Game 3 playing");
+                SwingUtilities.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        new ShapeMatching().setVisible(true);
+                    }
+                });
                 break;
         }
     }
