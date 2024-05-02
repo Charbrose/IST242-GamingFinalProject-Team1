@@ -1,4 +1,3 @@
-
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import javax.swing.Timer; //added for timing
@@ -11,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-enum ShapeType {
+enum ShapeType { // set up and creates the main frame 
     RECTANGLE,
     CIRCLE,
     TRIANGLE,
@@ -20,13 +19,14 @@ enum ShapeType {
     HEXAGON //^
 }
 
+// declares and creates method  
 public class ShapeMatching extends JFrame implements KeyListener {
 private static final int WIDTH = 500;
 private static final int HEIGHT = 500;
 private static final int PLAYER_WIDTH = 50;
 private static final int PLAYER_HEIGHT = 50;
 private static final int OBSTACLE_WIDTH = 20;
-private static final int OBSTACLE_HEIGHT = 20;
+private static final int OBSTACLE_HEIGHT = 20; 
 private static final int PROJECTILE_WIDTH = 50; //edited from 5 to 50 in order to align with obstacle dimensions
 private static final int PROJECTILE_HEIGHT = 50; // ^
 private static final int PLAYER_SPEED = 25;
@@ -96,16 +96,16 @@ public ShapeMatching() {
     obstacles = new ArrayList<>();
 
     try {
-        pointerImage = ImageIO.read(new File("pointer.png"));
-        spriteCircle = ImageIO.read(new File("circle.png"));
-        spriteTriangle = ImageIO.read(new File("triangle.png"));
-        spriteRectangle = ImageIO.read(new File("rectangle.png"));
-        spriteHexagon = ImageIO.read(new File("Hexagon.png"));
-        spriteTrapezoid = ImageIO.read(new File("Trapezoid.png"));
-        spritePentagon = ImageIO.read(new File("Pentagon.png"));
+        pointerImage = ImageIO.read(new File("pointer.png")); // links together custom image to pointer 
+        spriteCircle = ImageIO.read(new File("circle.png")); // links together custom image to circle 
+        spriteTriangle = ImageIO.read(new File("triangle.png")); // links together custom image to triangle 
+        spriteRectangle = ImageIO.read(new File("rectangle.png")); // links together custom image to rectangle
+        spriteHexagon = ImageIO.read(new File("Hexagon.png")); // links together custom image to hexagon  
+        spriteTrapezoid = ImageIO.read(new File("Trapezoid.png")); // links together custom image to trapezoid 
+        spritePentagon = ImageIO.read(new File("Pentagon.png")); // links togther custom image to pentagon 
 
-        scaledPointerImage = pointerImage.getScaledInstance(PLAYER_WIDTH, PLAYER_HEIGHT, Image.SCALE_DEFAULT);
-        spriteWidth = OBSTACLE_WIDTH;
+        scaledPointerImage = pointerImage.getScaledInstance(PLAYER_WIDTH, PLAYER_HEIGHT, Image.SCALE_DEFAULT); // sets up a player pointer scale 
+        spriteWidth = OBSTACLE_WIDTH; 
         spriteHeight = OBSTACLE_HEIGHT;
     } catch (IOException ex) {
         ex.printStackTrace();
@@ -159,17 +159,17 @@ private void promptNextShape() {
 }
 
 private void moveToLevel2() {
-    System.out.println("Moving to level 2!");
-    OBSTACLE_SPEED = 7;
-    SHAPE_PROMPT_TIME_LIMIT = 15000;
-    currentLevel = 2;
+    System.out.println("Moving to level 2!"); // prints on screen the next level name 
+    OBSTACLE_SPEED = 7; // increase the set obstacles by seven
+    SHAPE_PROMPT_TIME_LIMIT = 15000; // creates a time limit for how long the game runs for 
+    currentLevel = 2; // sets up and establishes the game is running level 2 and not level 1
     levelLabel.setText("Level: 2");
     JOptionPane.showMessageDialog(this, "Welcome to level 2!");
     currentShapeIndex = 0;
 }
 
-private void draw(Graphics g) {
-    g.setColor(Color.WHITE);
+private void draw(Graphics g) { // creates customization for background color 
+    g.setColor(Color.WHITE); 
     g.fillRect(0, 0, WIDTH, HEIGHT);
 
     // Draw player ship
