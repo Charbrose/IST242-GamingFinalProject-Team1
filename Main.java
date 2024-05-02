@@ -17,7 +17,7 @@ public class Main {
                 {
                     @Override
                     public void run() {
-                        new ShapeMatching(); // Starts the game by creating an instance of ShapeMatcherGame
+                        new ShapeMatcherGame(); // Starts the game by creating an instance of ShapeMatcherGame
                     }
                 });
                 break;
